@@ -38,10 +38,11 @@ echo "src-git luci-app-vlmcsd https://github.com/flytosky-f/luci-app-vlmcsd" >> 
 echo "src-git OpenAppFilter https://github.com/destan19/OpenAppFilter" >> feeds.conf.default
 echo 'src-git linkease https://github.com/linkease/nas-packages.git;master' >> feeds.conf.default
 echo 'src-git linkease_luci https://github.com/linkease/nas-packages-luci.git;main' >> feeds.conf.default
+echo 'src-git linkease_luci https://github.com/linkease/nas-packages-luci.git;main' >> feeds.conf.default
 
 # Themes
 echo 'src-git luci-theme-argon https://github.com/jerrykuku/luci-theme-argon' >> feeds.conf.default
-echo 'src-git luci-app-argon-config https://github.com/jerrykuku/luci-app-argon-config' >> feeds.conf.default
+echo 'src-git luci-app-netdata https://github.com/sirpdboy/luci-app-netdata' >> feeds.conf.default
 
 
 #git clone https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
