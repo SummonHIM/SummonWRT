@@ -13,11 +13,12 @@
 # Uncomment a feed source
 #sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
 
+#echo 'src-git helloworld https://github.com/fw876/helloworld' >>feeds.conf.default
+
 # Socks tools
 echo 'src-git passwall https://github.com/xiaorouji/openwrt-passwall' >>feeds.conf.default
 echo 'src-git passwall2 https://github.com/xiaorouji/openwrt-passwall2.git' >>feeds.conf.default
 echo 'src-git OpenClash https://github.com/vernesong/OpenClash.git' >>feeds.conf.default
-echo 'src-git helloworld https://github.com/fw876/helloworld' >>feeds.conf.default
 
 # System
 echo 'src-git luci_app_diskman https://github.com/lisaac/luci-app-diskman.git' >>feeds.conf.default
@@ -44,6 +45,7 @@ git clone https://github.com/BoringCat/luci-app-mentohust.git package/luci-app-m
 git clone https://github.com/rufengsuixing/luci-app-adguardhome.git package/luci-app-adguardhome
 git clone https://github.com/tty228/luci-app-serverchan.git package/luci-app-serverchan
 git clone https://github.com/sensec/ddns-scripts_aliyun.git package/ddns-scripts_aliyun
+git clone https://github.com/flytosky-f/openwrt-vlmcsd.git package/openwrt-vlmcsd
 git clone https://github.com/flytosky-f/luci-app-vlmcsd.git package/luci-app-vlmcsd
 wget https://raw.githubusercontent.com/coolsnowwolf/lede/master/package/lean/ddns-scripts_dnspod/Makefile package/ddns-scripts_dnspod/Makefile
 wget https://raw.githubusercontent.com/coolsnowwolf/lede/master/package/lean/ddns-scripts_dnspod/update_dnspod_cn.sh package/ddns-scripts_dnspod/update_dnspod_cn.sh
