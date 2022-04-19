@@ -47,9 +47,9 @@ git clone https://github.com/tty228/luci-app-serverchan.git package/luci-app-ser
 git clone https://github.com/sensec/ddns-scripts_aliyun.git package/ddns-scripts_aliyun
 git clone https://github.com/flytosky-f/openwrt-vlmcsd.git package/openwrt-vlmcsd
 git clone https://github.com/flytosky-f/luci-app-vlmcsd.git package/luci-app-vlmcsd
-wget https://raw.githubusercontent.com/coolsnowwolf/lede/master/package/lean/ddns-scripts_dnspod/Makefile package/ddns-scripts_dnspod/Makefile
-wget https://raw.githubusercontent.com/coolsnowwolf/lede/master/package/lean/ddns-scripts_dnspod/update_dnspod_cn.sh package/ddns-scripts_dnspod/update_dnspod_cn.sh
-wget https://raw.githubusercontent.com/coolsnowwolf/lede/master/package/lean/ddns-scripts_dnspod/update_dnspod_com.sh package/ddns-scripts_dnspod/update_dnspod_com.sh
+wget https://raw.githubusercontent.com/coolsnowwolf/lede/master/package/lean/ddns-scripts_dnspod/Makefile -O package/ddns-scripts_dnspod/Makefile
+wget https://raw.githubusercontent.com/coolsnowwolf/lede/master/package/lean/ddns-scripts_dnspod/update_dnspod_cn.sh -O package/ddns-scripts_dnspod/update_dnspod_cn.sh
+wget https://raw.githubusercontent.com/coolsnowwolf/lede/master/package/lean/ddns-scripts_dnspod/update_dnspod_com.sh -O package/ddns-scripts_dnspod/update_dnspod_com.sh
 
 # Themes
 #echo 'src-git luci_theme_argon https://github.com/jerrykuku/luci-theme-argon' >> feeds.conf.default
