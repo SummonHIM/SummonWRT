@@ -31,7 +31,6 @@ echo "src-git smartdns https://github.com/pymumu/smartdns.git" >> feeds.conf.def
 echo "src-git OpenAppFilter https://github.com/destan19/OpenAppFilter.git" >> feeds.conf.default
 echo 'src-git linkease https://github.com/linkease/nas-packages.git' >> feeds.conf.default
 echo 'src-git linkease_luci https://github.com/linkease/nas-packages-luci.git' >> feeds.conf.default
-echo 'src-git linkease_luci https://github.com/linkease/nas-packages-luci.git' >> feeds.conf.default
 
 echo 'src-git MentoHUST_OpenWrt_ipk https://github.com/KyleRicardo/MentoHUST-OpenWrt-ipk.git;master' >>feeds.conf.default
 echo 'src-git luci_app_mentohust https://github.com/BoringCat/luci-app-mentohust.git;master' >>feeds.conf.default
