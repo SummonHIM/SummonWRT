@@ -32,6 +32,7 @@ echo "src-git smartdns https://github.com/pymumu/smartdns.git" >> feeds.conf.def
 echo "src-git OpenAppFilter https://github.com/destan19/OpenAppFilter.git" >> feeds.conf.default
 echo 'src-git linkease https://github.com/linkease/nas-packages.git' >> feeds.conf.default
 echo 'src-git linkease_luci https://github.com/linkease/nas-packages-luci.git' >> feeds.conf.default
+echo 'src-git luci_app_timecontrol https://github.com/SummonHIM/luci-app-timecontrol.git' >> feeds.conf.default
 
 #echo 'src-git MentoHUST_OpenWrt_ipk https://github.com/KyleRicardo/MentoHUST-OpenWrt-ipk.git;master' >>feeds.conf.default
 #echo 'src-git luci_app_mentohust https://github.com/BoringCat/luci-app-mentohust.git;master' >>feeds.conf.default
@@ -47,6 +48,7 @@ git clone https://github.com/tty228/luci-app-serverchan.git package/luci-app-ser
 git clone https://github.com/sensec/ddns-scripts_aliyun.git package/ddns-scripts_aliyun
 git clone https://github.com/flytosky-f/openwrt-vlmcsd.git package/openwrt-vlmcsd
 git clone https://github.com/flytosky-f/luci-app-vlmcsd.git package/luci-app-vlmcsd
+mkdir package/ddns-scripts_dnspod
 wget https://raw.githubusercontent.com/coolsnowwolf/lede/master/package/lean/ddns-scripts_dnspod/Makefile -O package/ddns-scripts_dnspod/Makefile
 wget https://raw.githubusercontent.com/coolsnowwolf/lede/master/package/lean/ddns-scripts_dnspod/update_dnspod_cn.sh -O package/ddns-scripts_dnspod/update_dnspod_cn.sh
 wget https://raw.githubusercontent.com/coolsnowwolf/lede/master/package/lean/ddns-scripts_dnspod/update_dnspod_com.sh -O package/ddns-scripts_dnspod/update_dnspod_com.sh
