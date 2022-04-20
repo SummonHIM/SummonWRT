@@ -16,3 +16,5 @@ sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generat
 sed -i "s/hostname='OpenWrt'/hostname='SummonWrt'/g" package/base-files/files/bin/config_generate
 sed -i "s/timezone='UTC'/timezone='CST-8'/g" package/base-files/files/bin/config_generate
 sed -i "s/openwrt.pool.ntp.org/cn.pool.ntp.org/g" package/base-files/files/bin/config_generate
+echo '/bin/zsh' >package/base-files/files/etc/shells
+echo '/bin/ash' >>package/base-files/files/etc/shells
