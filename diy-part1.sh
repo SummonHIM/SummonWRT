@@ -33,26 +33,35 @@ echo "src-git OpenAppFilter https://github.com/destan19/OpenAppFilter.git" >> fe
 echo 'src-git linkease https://github.com/linkease/nas-packages.git' >> feeds.conf.default
 echo 'src-git linkease_luci https://github.com/linkease/nas-packages-luci.git' >> feeds.conf.default
 echo 'src-git luci_app_timecontrol https://github.com/SummonHIM/luci-app-timecontrol.git' >> feeds.conf.default
-
-#echo 'src-git MentoHUST_OpenWrt_ipk https://github.com/KyleRicardo/MentoHUST-OpenWrt-ipk.git;master' >>feeds.conf.default
-#echo 'src-git luci_app_mentohust https://github.com/BoringCat/luci-app-mentohust.git;master' >>feeds.conf.default
-#echo 'src-git luci_app_adguardhome https://github.com/rufengsuixing/luci-app-adguardhome.git;master' >>feeds.conf.default
-#echo "src-git luci_app_serverchan https://github.com/tty228/luci-app-serverchan" >> feeds.conf.default
-#echo "src-git ddns_scripts_aliyun https://github.com/sensec/ddns-scripts_aliyun" >> feeds.conf.default
-#echo "src-git luci_app_vlmcsd https://github.com/flytosky-f/luci-app-vlmcsd" >> feeds.conf.default
-#echo "src-git ddns_scripts_dnspod https://github.com/coolsnowwolf/lede/tree/master/package/lean/ddns-scripts_dnspod" >> feeds.conf.default
 git clone https://github.com/KyleRicardo/MentoHUST-OpenWrt-ipk.git package/mentohust
 git clone https://github.com/BoringCat/luci-app-mentohust.git package/luci-app-mentohust
 git clone https://github.com/rufengsuixing/luci-app-adguardhome.git package/luci-app-adguardhome
 git clone https://github.com/tty228/luci-app-serverchan.git package/luci-app-serverchan
 git clone https://github.com/sensec/ddns-scripts_aliyun.git package/ddns-scripts_aliyun
-mkdir package/ddns-scripts_dnspod
-wget https://raw.githubusercontent.com/coolsnowwolf/lede/master/package/lean/ddns-scripts_dnspod/Makefile -O package/ddns-scripts_dnspod/Makefile
-wget https://raw.githubusercontent.com/coolsnowwolf/lede/master/package/lean/ddns-scripts_dnspod/update_dnspod_cn.sh -O package/ddns-scripts_dnspod/update_dnspod_cn.sh
-wget https://raw.githubusercontent.com/coolsnowwolf/lede/master/package/lean/ddns-scripts_dnspod/update_dnspod_com.sh -O package/ddns-scripts_dnspod/update_dnspod_com.sh
+
+# Lede
+git clone https://github.com/coolsnowwolf/lede.git package/ledepkg
+git clone https://github.com/coolsnowwolf/packages.git package/ledepkg-packages
+git clone https://github.com/coolsnowwolf/luci.git package/ledepkg-luci
+
+cp -r package/ledepkg/package/lean/ddns-scripts_dnspod package/ddns-scripts_dnspod
+
+cp -r package/ledepkg/package/lean/shortcut-fe package/shortcut-fe
+
+cp -r package/ledepkg-packages/net/dnsforwarder package/dnsforwarder
+
+cp -r package/ledepkg-packages/net/dnsproxy package/dnsproxy
+
+cp -r package/ledepkg-luci/applications/luci-app-cpufreq package/luci-app-cpufreq
+sed -i "s/include ..\/..\/luci.mk/include ..\/..\/feeds\/luci\/luci.mk/g" package/luci-app-cpufreq/Makefile
+mv package/luci-app-cpufreq/po/zh-cn package/luci-app-cpufreq/po/zh_Hans
+
+cp -r package/ledepkg-luci/applications/luci-app-turboacc package/luci-app-turboacc
+sed -i "s/include ..\/..\/luci.mk/include ..\/..\/feeds\/luci\/luci.mk/g" package/luci-app-turboacc/Makefile
+mv package/luci-app-turboacc/po/zh-cn package/luci-app-turboacc/po/zh_Hans
+
+rm -rf package/ledepkg package/ledepkg-packages package/ledepkg-luci
 
 # Themes
-#echo 'src-git luci_theme_argon https://github.com/jerrykuku/luci-theme-argon' >> feeds.conf.default
-#echo 'src-git luci_app_netdata https://github.com/sirpdboy/luci-app-netdata' >> feeds.conf.default
 git clone https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
 git clone https://github.com/jerrykuku/luci-app-argon-config package/luci-theme-argon-config
