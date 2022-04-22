@@ -22,7 +22,6 @@ echo 'src-git OpenClash https://github.com/vernesong/OpenClash.git' >>feeds.conf
 
 # System
 echo 'src-git luci_app_diskman https://github.com/lisaac/luci-app-diskman.git' >>feeds.conf.default
-git clone https://github.com/MeIsReallyBa/Openwrt-sfe-flowoffload-linux-5.4.git package/shortcut-fe
 
 # Service
 echo 'src-git openwrt_iptvhelper https://github.com/riverscn/openwrt-iptvhelper.git' >>feeds.conf.default
@@ -44,21 +43,12 @@ git clone https://github.com/immortalwrt/immortalwrt.git -b openwrt-21.02 packag
 git clone https://github.com/immortalwrt/packages.git -b openwrt-21.02 package/immortalpkg-packages
 git clone https://github.com/immortalwrt/luci.git -b openwrt-21.02 package/immortalpkg-luci
 
-cp -r package/immortalpkg/package/kernel/fast-classifier package/fast-classifier
-
 cp -r package/immortalpkg-packages/net/ddns-scripts_dnspod package/ddns-scripts_dnspod
 
 cp -r package/immortalpkg-packages/net/ddns-scripts_dnspod package/ddns-scripts_dnspod
-
-cp -r package/immortalpkg-packages/net/dnsforwarder package/dnsforwarder
-
-cp -r package/immortalpkg-packages/net/dnsproxy package/dnsproxy
 
 cp -r package/immortalpkg-luci/applications/luci-app-cpufreq package/luci-app-cpufreq
 sed -i "s/include ..\/..\/luci.mk/include ..\/..\/feeds\/luci\/luci.mk/g" package/luci-app-cpufreq/Makefile
-
-cp -r package/immortalpkg-luci/applications/luci-app-turboacc package/luci-app-turboacc
-sed -i "s/include ..\/..\/luci.mk/include ..\/..\/feeds\/luci\/luci.mk/g" package/luci-app-turboacc/Makefile
 
 rm -rf package/immortalpkg package/immortalpkg-packages package/immortalpkg-luci
 
