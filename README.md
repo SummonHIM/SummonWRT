@@ -11,7 +11,8 @@ A OpenWrt release for SummonHIM
 ## Credits
 
 - [OpenWrt](https://github.com/openwrt/openwrt)
-- [Lean's OpenWrt](https://github.com/coolsnowwolf/lede)
+- [Lede](https://github.com/coolsnowwolf/lede)
+- [immortalwrt](https://github.com/immortalwrt/immortalwrt)
 - [P3TERX/Actions-OpenWrt](https://github.com/P3TERX/Actions-OpenWrt)
 - [xiaorouji](https://github.com/xiaorouji)
 - [vernesong](https://github.com/vernesong)

@@ -28,7 +28,6 @@ echo 'src-git openwrt_iptvhelper https://github.com/riverscn/openwrt-iptvhelper.
 echo "src-git natelol https://github.com/natelol/natelol.git" >> feeds.conf.default
 echo "src-git wrtbwmon https://github.com/brvphoenix/wrtbwmon.git" >> feeds.conf.default
 echo "src-git luci_wrtbwmon https://github.com/brvphoenix/luci-app-wrtbwmon.git" >> feeds.conf.default
-echo "src-git smartdns https://github.com/pymumu/smartdns.git" >> feeds.conf.default
 echo "src-git OpenAppFilter https://github.com/destan19/OpenAppFilter.git" >> feeds.conf.default
 echo 'src-git linkease https://github.com/linkease/nas-packages.git' >> feeds.conf.default
 echo 'src-git linkease_luci https://github.com/linkease/nas-packages-luci.git' >> feeds.conf.default
@@ -39,28 +38,30 @@ git clone https://github.com/rufengsuixing/luci-app-adguardhome.git package/luci
 git clone https://github.com/tty228/luci-app-serverchan.git package/luci-app-serverchan
 git clone https://github.com/sensec/ddns-scripts_aliyun.git package/ddns-scripts_aliyun
 
-# Lede
-git clone https://github.com/coolsnowwolf/lede.git package/ledepkg
-git clone https://github.com/coolsnowwolf/packages.git package/ledepkg-packages
-git clone https://github.com/coolsnowwolf/luci.git package/ledepkg-luci
+# immortalwrt
+git clone https://github.com/immortalwrt/immortalwrt.git -b openwrt-21.02 package/immortalpkg
+git clone https://github.com/immortalwrt/packages.git -b openwrt-21.02 package/immortalpkg-packages
+git clone https://github.com/immortalwrt/luci.git -b openwrt-21.02 package/immortalpkg-luci
 
-cp -r package/ledepkg/package/lean/ddns-scripts_dnspod package/ddns-scripts_dnspod
+cp -r package/immortalpkg/package/kernel/shortcut-fe package/shortcut-fe
 
-cp -r package/ledepkg/package/lean/shortcut-fe package/shortcut-fe
+cp -r package/immortalpkg/package/kernel/fast-classifier package/fast-classifier
 
-cp -r package/ledepkg-packages/net/dnsforwarder package/dnsforwarder
+cp -r package/immortalpkg-packages/net/ddns-scripts_dnspod package/ddns-scripts_dnspod
 
-cp -r package/ledepkg-packages/net/dnsproxy package/dnsproxy
+cp -r package/immortalpkg-packages/net/ddns-scripts_dnspod package/ddns-scripts_dnspod
 
-cp -r package/ledepkg-luci/applications/luci-app-cpufreq package/luci-app-cpufreq
+cp -r package/immortalpkg-packages/net/dnsforwarder package/dnsforwarder
+
+cp -r package/immortalpkg-packages/net/dnsproxy package/dnsproxy
+
+cp -r package/immortalpkg-luci/applications/luci-app-cpufreq package/luci-app-cpufreq
 sed -i "s/include ..\/..\/luci.mk/include ..\/..\/feeds\/luci\/luci.mk/g" package/luci-app-cpufreq/Makefile
-mv package/luci-app-cpufreq/po/zh-cn package/luci-app-cpufreq/po/zh_Hans
 
-cp -r package/ledepkg-luci/applications/luci-app-turboacc package/luci-app-turboacc
+cp -r package/immortalpkg-luci/applications/luci-app-turboacc package/luci-app-turboacc
 sed -i "s/include ..\/..\/luci.mk/include ..\/..\/feeds\/luci\/luci.mk/g" package/luci-app-turboacc/Makefile
-mv package/luci-app-turboacc/po/zh-cn package/luci-app-turboacc/po/zh_Hans
 
-rm -rf package/ledepkg package/ledepkg-packages package/ledepkg-luci
+rm -rf package/immortalpkg package/immortalpkg-packages package/immortalpkg-luci
 
 # Themes
 git clone https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
