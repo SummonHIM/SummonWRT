@@ -44,7 +44,6 @@ git clone https://github.com/immortalwrt/packages.git -b openwrt-21.02 package/i
 git clone https://github.com/immortalwrt/luci.git -b openwrt-21.02 package/immortalpkg-luci
 
 cp -r package/immortalpkg-packages/net/ddns-scripts_dnspod package/ddns-scripts_dnspod
-
 cp -r package/immortalpkg-luci/applications/luci-app-cpufreq package/luci-app-cpufreq
 sed -i "s/include ..\/..\/luci.mk/include ..\/..\/feeds\/luci\/luci.mk/g" package/luci-app-cpufreq/Makefile
 
@@ -53,3 +52,7 @@ rm -rf package/immortalpkg package/immortalpkg-packages package/immortalpkg-luci
 # Themes
 git clone https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
 git clone https://github.com/jerrykuku/luci-app-argon-config package/luci-theme-argon-config
+
+# Change zh-cn to zh-Hans
+mv feeds/linkease_luci/luci/luci-app-ddnsto/po/zh-cn feeds/linkease_luci/luci/luci-app-ddnsto/po/zh_Hans
+mv package/luci-theme-argon-config/po/zh-cn package/luci-theme-argon-config/po/zh_Hans
