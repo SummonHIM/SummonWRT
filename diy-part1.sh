@@ -22,6 +22,7 @@ echo 'src-git OpenClash https://github.com/vernesong/OpenClash.git' >>feeds.conf
 
 # System
 echo 'src-git luci_app_diskman https://github.com/lisaac/luci-app-diskman.git' >>feeds.conf.default
+git clone https://github.com/MeIsReallyBa/Openwrt-sfe-flowoffload-linux-5.4.git package/shortcut-fe
 
 # Service
 echo 'src-git openwrt_iptvhelper https://github.com/riverscn/openwrt-iptvhelper.git' >>feeds.conf.default
@@ -42,8 +43,6 @@ git clone https://github.com/sensec/ddns-scripts_aliyun.git package/ddns-scripts
 git clone https://github.com/immortalwrt/immortalwrt.git -b openwrt-21.02 package/immortalpkg
 git clone https://github.com/immortalwrt/packages.git -b openwrt-21.02 package/immortalpkg-packages
 git clone https://github.com/immortalwrt/luci.git -b openwrt-21.02 package/immortalpkg-luci
-
-cp -r package/immortalpkg/package/kernel/shortcut-fe package/shortcut-fe
 
 cp -r package/immortalpkg/package/kernel/fast-classifier package/fast-classifier
 
