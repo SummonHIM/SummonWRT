@@ -45,8 +45,6 @@ git clone https://github.com/immortalwrt/luci.git -b openwrt-21.02 package/immor
 
 cp -r package/immortalpkg-packages/net/ddns-scripts_dnspod package/ddns-scripts_dnspod
 
-cp -r package/immortalpkg-packages/net/ddns-scripts_dnspod package/ddns-scripts_dnspod
-
 cp -r package/immortalpkg-luci/applications/luci-app-cpufreq package/luci-app-cpufreq
 sed -i "s/include ..\/..\/luci.mk/include ..\/..\/feeds\/luci\/luci.mk/g" package/luci-app-cpufreq/Makefile
 
