@@ -54,5 +54,4 @@ git clone https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-a
 git clone https://github.com/jerrykuku/luci-app-argon-config package/luci-theme-argon-config
 
 # Change zh-cn to zh-Hans
-mv feeds/linkease_luci/luci/luci-app-ddnsto/po/zh-cn feeds/linkease_luci/luci/luci-app-ddnsto/po/zh_Hans
 mv package/luci-theme-argon-config/po/zh-cn package/luci-theme-argon-config/po/zh_Hans
