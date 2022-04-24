@@ -20,10 +20,10 @@ on:
         default: 'false'
   push:
     branches: [ master ]
-    paths:
-      - 'x86_64.config'
-      - 'diy-part1.sh'
-      - 'diy-part2.sh'
+    #paths:
+    #  - 'x86_64.config'
+    #  - 'diy-part1.sh'
+    #  - 'diy-part2.sh'
 
 env:
   REPO_URL: https://git.openwrt.org/openwrt/openwrt.git

@@ -7,21 +7,7 @@ A OpenWrt release for SummonHIM
 ## Include Package
 - [x86_64.config](https://github.com/SummonHIM/SummonWRT/blob/master/x86_64.config)
 - [rk3328.config](https://github.com/SummonHIM/SummonWRT/blob/master/rk3328.config)
-
-### Different
-#### KMod
-- kmod-fs-vfat
-- kmod-usb-net-rtl8152
-- kmod-mt7921
-#### Language
-- Python
-- Ruby
-#### Build Options
-- OPENSSL_OPTIMIZE_SPEED
-#### Library
-- libpam
-#### Luci
-- luci-app-cpufreq
+- [Packages.md](https://github.com/SummonHIM/SummonWRT/blob/master/Packages.md)
 
 ## Credits
 

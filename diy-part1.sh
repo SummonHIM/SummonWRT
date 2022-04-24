@@ -32,8 +32,6 @@ echo "src-git OpenAppFilter https://github.com/destan19/OpenAppFilter.git" >> fe
 echo 'src-git linkease https://github.com/linkease/nas-packages.git' >> feeds.conf.default
 echo 'src-git linkease_luci https://github.com/linkease/nas-packages-luci.git' >> feeds.conf.default
 echo 'src-git luci_app_timecontrol https://github.com/SummonHIM/luci-app-timecontrol.git' >> feeds.conf.default
-git clone https://github.com/KyleRicardo/MentoHUST-OpenWrt-ipk.git package/mentohust
-git clone https://github.com/BoringCat/luci-app-mentohust.git package/luci-app-mentohust
 git clone https://github.com/rufengsuixing/luci-app-adguardhome.git package/luci-app-adguardhome
 git clone https://github.com/tty228/luci-app-serverchan.git package/luci-app-serverchan
 git clone https://github.com/sensec/ddns-scripts_aliyun.git package/ddns-scripts_aliyun
@@ -43,7 +41,10 @@ git clone https://github.com/immortalwrt/immortalwrt.git -b openwrt-21.02 packag
 git clone https://github.com/immortalwrt/packages.git -b openwrt-21.02 package/immortalpkg-packages
 git clone https://github.com/immortalwrt/luci.git -b openwrt-21.02 package/immortalpkg-luci
 
+cp -r package/immortalpkg-packages/net/mentohust package/mentohust
 cp -r package/immortalpkg-packages/net/ddns-scripts_dnspod package/ddns-scripts_dnspod
+cp -r package/immortalpkg-luci/applications/luci-app-mentohust package/luci-app-mentohust
+sed -i "s/include ..\/..\/luci.mk/include ..\/..\/feeds\/luci\/luci.mk/g" package/luci-app-mentohust/Makefile
 cp -r package/immortalpkg-luci/applications/luci-app-cpufreq package/luci-app-cpufreq
 sed -i "s/include ..\/..\/luci.mk/include ..\/..\/feeds\/luci\/luci.mk/g" package/luci-app-cpufreq/Makefile
 
