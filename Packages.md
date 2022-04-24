@@ -12,6 +12,7 @@
 - (1024) Root filesystem partition size (in MB)
 
 ## Base system
+- block-mount
 - (-) dnsmasq
 
 ## Administration
