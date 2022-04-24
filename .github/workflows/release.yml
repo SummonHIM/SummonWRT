@@ -123,6 +123,10 @@ jobs:
       run: |
         cd openwrt/bin/targets/*/*
         rm -rf packages
+        mv config.buildinfo config${{ env.DEVICE_NAME }}.buildinfo
+        mv feeds.buildinfo feeds${{ env.DEVICE_NAME }}.buildinfo
+        mv sha256sums sha256sums${{ env.DEVICE_NAME }}
+        mv version.buildinfo version${{ env.DEVICE_NAME }}.buildinfo
         echo "FIRMWARE=$PWD" >> $GITHUB_ENV
         echo "::set-output name=status::success"
 
@@ -286,6 +290,10 @@ jobs:
       run: |
         cd openwrt/bin/targets/*/*
         rm -rf packages
+        mv config.buildinfo config${{ env.DEVICE_NAME }}.buildinfo
+        mv feeds.buildinfo feeds${{ env.DEVICE_NAME }}.buildinfo
+        mv sha256sums sha256sums${{ env.DEVICE_NAME }}
+        mv version.buildinfo version${{ env.DEVICE_NAME }}.buildinfo
         echo "FIRMWARE=$PWD" >> $GITHUB_ENV
         echo "::set-output name=status::success"
 
