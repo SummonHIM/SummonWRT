@@ -5,8 +5,6 @@ A OpenWrt release for SummonHIM
 [Release](https://github.com/SummonHIM/SummonWRT/releases) / [Action](https://github.com/SummonHIM/SummonWRT/actions)
 
 ## Include Package
-- [x86_64.config](https://github.com/SummonHIM/SummonWRT/blob/master/x86_64.config)
-- [rk3328.config](https://github.com/SummonHIM/SummonWRT/blob/master/rk3328.config)
 - [Packages.md](https://github.com/SummonHIM/SummonWRT/blob/master/Packages.md)
 
 ## Credits
