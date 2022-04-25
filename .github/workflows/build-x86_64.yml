@@ -176,7 +176,7 @@ jobs:
         echo "# Build Date" >> release.txt
         echo $(date +"%Y.%m.%d-%H:%M:%S") >> release.txt
         echo "# Changelog" >> release.txt
-        echo "[Check Commits](https://github.com/SummonHIM/EZ-RSKiller/commits)" >> release.txt
+        echo "[Check Commits](https://github.com/SummonHIM/SummonWrt/commits)" >> release.txt
         [ $UPLOAD_FIRMWARE_COWTRANSFER = true || $UPLOAD_FIRMWARE_WETRANSFER = true ] && echo "# Other Download Methood" >> release.txt
         [ $UPLOAD_FIRMWARE_COWTRANSFER = true ] && echo "🔗 [Cowtransfer](${{ steps.cowtransfer.outputs.url }})" >> release.txt
         [ $UPLOAD_FIRMWARE_WETRANSFER = true ] && echo "🔗 [WeTransfer](${{ steps.wetransfer.outputs.url }})" >> release.txt
