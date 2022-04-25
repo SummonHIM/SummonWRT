@@ -7,6 +7,11 @@ A OpenWrt release for SummonHIM
 ## Include Package
 - [Packages.md](https://github.com/SummonHIM/SummonWRT/blob/master/Packages.md)
 
+## Information
+- Lan IP: 192.168.2.1
+- No password provide
+- You need delete useless software sources first to run opkg update
+
 ## Credits
 
 - [OpenWrt](https://github.com/openwrt/openwrt)
