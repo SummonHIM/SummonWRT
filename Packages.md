@@ -45,6 +45,11 @@
 
 --- EOL Smartphone USB network sharing ---
 
+## Libraries
+### libcurl
+- Selected SSL library (OpenSSL)
+- SCP / SFTP protocol
+
 ## Luci
 ### Collections
 - luci
@@ -84,7 +89,6 @@
 - luci-app-qos
 - luci-app-serverchan
 - luci-app-smartdns
-- luci-app-softether
 - luci-app-timecontrol
 - luci-app-ttyd
 - luci-app-udpxy
@@ -116,7 +120,7 @@
 - openssh-sftp-server
 
 ### VPN
-- softethervpn5-bridge
+- (-) softethervpn5-bridge
 - softethervpn5-server
 - strongswan
   - strongswan-default
