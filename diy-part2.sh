@@ -14,7 +14,6 @@
 #sed -i 's/192.168.1.1/192.168.50.5/g' package/base-files/files/bin/config_generate
 
 # Change zh-cn to zh-Hans
-mv feeds/linkease_luci/luci/luci-app-ddnsto/po/zh-cn feeds/linkease_luci/luci/luci-app-ddnsto/po/zh_Hans
 mv feeds/OpenAppFilter/luci-app-oaf/po/zh-cn feeds/OpenAppFilter/luci-app-oaf/po/zh_Hans
 
 # Modify System Setting
