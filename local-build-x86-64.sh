@@ -30,9 +30,9 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/SummonHIM/SummonWRT/master
 
 echo 
 echo --- Download package ---
-make defconfig download -j $(($(nproc)+1))
+echo make defconfig download -j $(($(nproc)+1))
 
 echo 
 echo --- Compile the firmware ---
 echo "$(($(nproc)+1)) thread compile"
-make -j $(($(nproc)+1)) V=s world
+echo make -j $(($(nproc)+1)) V=s world
