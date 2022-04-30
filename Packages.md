@@ -111,14 +111,6 @@
 - ddns-scripts-services
 - ddns-scripts_aliyun
 
-### SSH
-- openssh-client
-- openssh-client-utils
-- openssh-keygen
-- openssh-server
-- openssh-sftp-client
-- openssh-sftp-server
-
 ### VPN
 - (-) softethervpn5-bridge
 - softethervpn5-server
