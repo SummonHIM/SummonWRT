@@ -13,7 +13,7 @@
 
 ## Base system
 - block-mount
-- (-) dnsmasq
+- [-] dnsmasq
 
 ## Administration
 - sudo
@@ -32,6 +32,9 @@
 - kmod-nls-cp932 (Japanese)
 - kmod-nls-cp936 (SChinese)
 - kmod-nls-cp950 (TChinese)
+
+### Other modules
+- kmod-sdhci
 
 ### USB Support
 --- Smartphone USB network sharing ---
@@ -112,19 +115,11 @@
 - ddns-scripts_aliyun
 
 ### VPN
-- (-) softethervpn5-bridge
+- openvpn-easy-rsa
+- openvpn-openssl
+- softethervpn5-client
 - softethervpn5-server
-- strongswan
-  - strongswan-default
-  - strongswan-pki
-  - strongswan-mod-openssl
-  - strongswan-mod-curl
-  - strongswan-mod-dhcp
-  - strongswan-mod-eap-tls
-  - strongswan-mod-eap-identity
-  - strongswan-mod-kernel-libipsec
-  - strongswan-mod-test-vectors
-  - strongswan-mod-farp
+- zerotier
 
 ### Version Control Systems
 - git
@@ -136,6 +131,7 @@
 - docker-compose
 - usbutils (Smartphone USB network sharing)
 - shadow-utils
+  - [-] Full PLD version of passwd utility
 - tar
 
 ### Compression
