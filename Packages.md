@@ -11,6 +11,9 @@
 - tar.gz
 - (1024) Root filesystem partition size (in MB)
 
+## Global build settings
+- Select all kernel module packages by default
+
 ## Base system
 - block-mount
 - [-] dnsmasq
@@ -30,8 +33,8 @@
 ## Kernel modules
 ### Native Language Support
 - kmod-nls-cp932 (Japanese)
-- kmod-nls-cp936 (SChinese)
-- kmod-nls-cp950 (TChinese)
+- kmod-nls-cp936 (Simplified Chinese)
+- kmod-nls-cp950 (Traditional Chinese)
 
 ### Other modules
 - kmod-sdhci
@@ -76,6 +79,7 @@
 - luci-app-adguardhome
 - luci-app-banip
 - luci-app-beardropper
+- luci-app-cpufreq (Armv8 only)
 - luci-app-ddns
 - luci-app-ddnsto
 - luci-app-diskman
@@ -112,6 +116,7 @@
 ## Network
 - acme-dnsapi
 - adguardhome
+- softflowd
 
 ### IP Addresses and Names
 - ddns-scripts (With all mods)
@@ -134,10 +139,11 @@
 ## Utilities
 - docker-compose
 - dockerd
-- usbutils (Smartphone USB network sharing)
 - shadow-utils
   - [-] Full PLD version of passwd utility
 - tar
+- usbutils (Smartphone USB network sharing)
+- which
 
 ### Compression
 - gzip
