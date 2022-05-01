@@ -18,15 +18,22 @@
 # Socks tools
 git clone https://github.com/xiaorouji/openwrt-passwall package/openwrt-passwall
 git clone https://github.com/xiaorouji/openwrt-passwall2.git package/openwrt-passwall2
-git clone https://github.com/vernesong/OpenClash.git package/OpenClash
+git clone --depth 1 https://github.com/vernesong/OpenClash.git package/OpenClash
 git clone https://github.com/lisaac/luci-app-diskman.git package/luci-app-diskman
 git clone https://github.com/riverscn/openwrt-iptvhelper.git package/openwrt-iptvhelper
 git clone https://github.com/natelol/natelol.git package/natelol
 git clone https://github.com/brvphoenix/wrtbwmon.git package/wrtbwmon
 git clone https://github.com/brvphoenix/luci-app-wrtbwmon.git package/luci-app-wrtbwmon
 git clone https://github.com/destan19/OpenAppFilter.git package/OpenAppFilter
+mv package/OpenAppFilter/luci-app-oaf/po/zh-cn package/OpenAppFilter/luci-app-oaf/po/zh_Hans
 git clone https://github.com/linkease/nas-packages.git package/linkease
+mkdir package/ddnsto
+mv package/linkease/network/services/ddnsto package/ddnsto
+rm -rf package/linkease
 git clone https://github.com/linkease/nas-packages-luci.git package/linkease_luci
+mkdir package/luci-app-ddnsto
+mv package/linkease_luci/luci/luci-app-ddnsto package/luci-app-ddnsto
+rm -rf package/linkease_luci
 git clone https://github.com/SummonHIM/luci-app-timecontrol.git package/luci-app-timecontrol
 git clone https://github.com/rufengsuixing/luci-app-adguardhome.git package/luci-app-adguardhome
 git clone https://github.com/tty228/luci-app-serverchan.git package/luci-app-serverchan

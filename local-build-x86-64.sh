@@ -37,5 +37,5 @@ echo make defconfig download -j $(($(nproc)+1))
 echo 
 echo --- Compile the firmware ---
 echo "$(($(nproc)+1)) thread compile"
-read -s -n1 -p "Press any key to continue or Ctrl + C to quit ... "
+read -n1 -p "Press any key to continue or Ctrl + C to quit ... "
 make -j $(($(nproc)+1)) V=s world
