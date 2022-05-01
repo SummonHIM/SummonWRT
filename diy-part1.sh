@@ -16,25 +16,25 @@
 #echo 'src-git helloworld https://github.com/fw876/helloworld' >>feeds.conf.default
 
 # Socks tools
-echo 'src-git passwall https://github.com/xiaorouji/openwrt-passwall' >>feeds.conf.default
-echo 'src-git passwall2 https://github.com/xiaorouji/openwrt-passwall2.git' >>feeds.conf.default
-echo 'src-git OpenClash https://github.com/vernesong/OpenClash.git' >>feeds.conf.default
-
-# System
-echo 'src-git luci_app_diskman https://github.com/lisaac/luci-app-diskman.git' >>feeds.conf.default
-
-# Service
-echo 'src-git openwrt_iptvhelper https://github.com/riverscn/openwrt-iptvhelper.git' >>feeds.conf.default
-echo "src-git natelol https://github.com/natelol/natelol.git" >> feeds.conf.default
-echo "src-git wrtbwmon https://github.com/brvphoenix/wrtbwmon.git" >> feeds.conf.default
-echo "src-git luci_wrtbwmon https://github.com/brvphoenix/luci-app-wrtbwmon.git" >> feeds.conf.default
-echo "src-git OpenAppFilter https://github.com/destan19/OpenAppFilter.git" >> feeds.conf.default
-echo 'src-git linkease https://github.com/linkease/nas-packages.git' >> feeds.conf.default
-echo 'src-git linkease_luci https://github.com/linkease/nas-packages-luci.git' >> feeds.conf.default
-echo 'src-git luci_app_timecontrol https://github.com/SummonHIM/luci-app-timecontrol.git' >> feeds.conf.default
+git clone https://github.com/xiaorouji/openwrt-passwall package/openwrt-passwall
+git clone https://github.com/xiaorouji/openwrt-passwall2.git package/openwrt-passwall2
+git clone https://github.com/vernesong/OpenClash.git package/OpenClash
+git clone https://github.com/lisaac/luci-app-diskman.git package/luci-app-diskman
+git clone https://github.com/riverscn/openwrt-iptvhelper.git package/openwrt-iptvhelper
+git clone https://github.com/natelol/natelol.git package/natelol
+git clone https://github.com/brvphoenix/wrtbwmon.git package/wrtbwmon
+git clone https://github.com/brvphoenix/luci-app-wrtbwmon.git package/luci-app-wrtbwmon
+git clone https://github.com/destan19/OpenAppFilter.git package/OpenAppFilter
+git clone https://github.com/linkease/nas-packages.git package/linkease
+git clone https://github.com/linkease/nas-packages-luci.git package/linkease_luci
+git clone https://github.com/SummonHIM/luci-app-timecontrol.git package/luci-app-timecontrol
 git clone https://github.com/rufengsuixing/luci-app-adguardhome.git package/luci-app-adguardhome
 git clone https://github.com/tty228/luci-app-serverchan.git package/luci-app-serverchan
 git clone https://github.com/sensec/ddns-scripts_aliyun.git package/ddns-scripts_aliyun
+git clone https://github.com/rufengsuixing/luci-app-zerotier.git package/luci-app-zerotier
+mv package/luci-app-zerotier/po/zh-cn package/luci-app-zerotier/po/zh_Hans
+git clone https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
+git clone https://github.com/jerrykuku/luci-app-argon-config package/luci-theme-argon-config
 
 # immortalwrt
 git clone https://github.com/immortalwrt/immortalwrt.git -b openwrt-21.02 package/immortalpkg
@@ -49,7 +49,3 @@ cp -r package/immortalpkg-luci/applications/luci-app-cpufreq package/luci-app-cp
 sed -i "s/include ..\/..\/luci.mk/include ..\/..\/feeds\/luci\/luci.mk/g" package/luci-app-cpufreq/Makefile
 
 rm -rf package/immortalpkg package/immortalpkg-packages package/immortalpkg-luci
-
-# Themes
-git clone https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
-git clone https://github.com/jerrykuku/luci-app-argon-config package/luci-theme-argon-config

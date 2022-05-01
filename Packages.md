@@ -38,11 +38,13 @@
 
 ### USB Support
 --- Smartphone USB network sharing ---
-- kmod-usb-net-rndis
-- kmod-usb-net-cdc-ncm
-- kmod-usb-net-huawei-cdc-ncm
+
 - kmod-usb-net-cdc-eem
+- kmod-usb-net-cdc-ncm
 - kmod-usb-net-cdc-subset
+- kmod-usb-net-huawei-cdc-ncm
+- kmod-usb-net-ipheth
+- kmod-usb-net-rndis
 - kmod-usb2
 - kmod-usb3
 
@@ -88,6 +90,7 @@
 - luci-app-nlbwmon
 - luci-app-oaf
 - luci-app-openclash
+- luci-app-openvpn
 - luci-app-passwall2 (With all mods)
 - luci-app-qos
 - luci-app-serverchan
@@ -100,6 +103,7 @@
 - luci-app-wireguard
 - luci-app-wol
 - luci-app-wrtbwmon
+- luci-app-zerotier
 
 ### Themes
 - luci-theme-argon
@@ -129,6 +133,7 @@
 
 ## Utilities
 - docker-compose
+- dockerd
 - usbutils (Smartphone USB network sharing)
 - shadow-utils
   - [-] Full PLD version of passwd utility
