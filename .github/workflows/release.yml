@@ -122,6 +122,7 @@ jobs:
       if: steps.compile.outputs.status == 'success' && env.UPLOAD_FIRMWARE == 'true' && !cancelled()
       run: |
         cd openwrt/bin/targets/*/*
+        tar -zvcf packages${{ env.DEVICE_NAME }}.tar.gz packages/*
         rm -rf packages
         mv config.buildinfo config${{ env.DEVICE_NAME }}.buildinfo
         mv feeds.buildinfo feeds${{ env.DEVICE_NAME }}.buildinfo
@@ -289,6 +290,7 @@ jobs:
       if: steps.compile.outputs.status == 'success' && env.UPLOAD_FIRMWARE == 'true' && !cancelled()
       run: |
         cd openwrt/bin/targets/*/*
+        tar -zvcf packages${{ env.DEVICE_NAME }}.tar.gz packages/*
         rm -rf packages
         mv config.buildinfo config${{ env.DEVICE_NAME }}.buildinfo
         mv feeds.buildinfo feeds${{ env.DEVICE_NAME }}.buildinfo
