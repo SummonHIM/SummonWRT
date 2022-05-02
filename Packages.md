@@ -99,6 +99,7 @@
 - luci-app-qos
 - luci-app-serverchan
 - luci-app-smartdns
+- luci-app-statistics
 - luci-app-timecontrol
 - luci-app-ttyd
 - luci-app-udpxy
@@ -132,11 +133,27 @@
 
 ### Version Control Systems
 - git
+- git-http
 
 ### Web Servers/Proxies
 - nginx-all-module
 
 ## Utilities
+- collectd
+  - collectd-mod-cpu
+  - collectd-mod-cpufreq
+  - collectd-mod-disk
+  - collectd-mod-dns
+  - collectd-mod-interface
+  - collectd-mod-iwinfo
+  - collectd-mod-load
+  - collectd-mod-memory
+  - collectd-mod-network
+  - collectd-mod-nginx
+  - collectd-mod-rrdtool
+  - collectd-mod-sensors
+  - collectd-mod-thermal
+  - collectd-mod-wireless
 - docker-compose
 - dockerd
 - shadow-utils
