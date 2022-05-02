@@ -95,7 +95,7 @@
 - luci-app-oaf
 - luci-app-openclash
 - luci-app-openvpn
-- luci-app-passwall2 (With all mods)
+- luci-app-passwall (With all mods)
 - luci-app-qos
 - luci-app-serverchan
 - luci-app-smartdns
@@ -126,8 +126,8 @@
 ### VPN
 - openvpn-easy-rsa
 - openvpn-openssl
-- softethervpn5-client
-- softethervpn5-server
+- softethervpn-client
+- softethervpn-server
 - zerotier
 
 ### Version Control Systems

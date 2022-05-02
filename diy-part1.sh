@@ -17,7 +17,8 @@
 
 # Socks tools
 git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall package/openwrt-passwall
-git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall2.git package/openwrt-passwall2
+#git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall2.git package/openwrt-passwall2
+git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall.git -b luci package/luci-app-passwall
 git clone --depth 1 https://github.com/vernesong/OpenClash.git package/OpenClash
 git clone --depth 1 https://github.com/lisaac/luci-app-diskman.git package/luci-app-diskman
 git clone --depth 1 https://github.com/riverscn/openwrt-iptvhelper.git package/openwrt-iptvhelper
