@@ -37,7 +37,6 @@ rm -rf package/linkease_luci
 git clone --depth 1 https://github.com/SummonHIM/luci-app-timecontrol.git package/luci-app-timecontrol
 git clone --depth 1 https://github.com/rufengsuixing/luci-app-adguardhome.git package/luci-app-adguardhome
 git clone --depth 1 https://github.com/tty228/luci-app-serverchan.git package/luci-app-serverchan
-git clone --depth 1 https://github.com/sensec/ddns-scripts_aliyun.git package/ddns-scripts_aliyun
 git clone --depth 1 https://github.com/rufengsuixing/luci-app-zerotier.git package/luci-app-zerotier
 mv package/luci-app-zerotier/po/zh-cn package/luci-app-zerotier/po/zh_Hans
 git clone --depth 1 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
@@ -50,6 +49,7 @@ git clone --depth 1 https://github.com/immortalwrt/luci.git -b openwrt-21.02 pac
 
 cp -r package/immortalpkg-packages/net/mentohust package/mentohust
 cp -r package/immortalpkg-packages/net/ddns-scripts_dnspod package/ddns-scripts_dnspod
+cp -r package/immortalpkg-packages/net/ddns-scripts_aliyun package/ddns-scripts_aliyun
 cp -r package/immortalpkg-luci/applications/luci-app-mentohust package/luci-app-mentohust
 sed -i "s/include ..\/..\/luci.mk/include ..\/..\/feeds\/luci\/luci.mk/g" package/luci-app-mentohust/Makefile
 cp -r package/immortalpkg-luci/applications/luci-app-cpufreq package/luci-app-cpufreq
