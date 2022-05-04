@@ -2,180 +2,184 @@
 ## x86_64 Target Images
 - (3) Seconds to wait before booting the default entry
 - (SummonWrt) Title for the menu entry in GRUB
-- Build LiveCD image (ISO)
-- Build VirtualBox image files (VDI)
-- Build VMware image files (VMDK)
+- [x] Build LiveCD image (ISO)
+- [x] Build VirtualBox image files (VDI)
+- [x] Build VMware image files (VMDK)
 - (1024) Root filesystem partition size (in MB)
 
 ## RK3328 Target Images
-- tar.gz
+- [x] tar.gz
 - (1024) Root filesystem partition size (in MB)
 
 ## Global build settings
-- Select all kernel module packages by default
+- [x] Select all kernel module packages by default
 
 ## Base system
-- block-mount
-- [-] dnsmasq
+- [x] block-mount
+- [ ] dnsmasq
 
 ## Administration
-- sudo
+- [x] sudo
 
 ## Extra packages
-- nginx
-- nginx-mod-luci-ssl
-- nginx-util
+- [x] nginx
+- [x] nginx-mod-luci-ssl
+- [x] nginx-util
 
 ## Fonts
 ### DejaVu
-- dejavu-fonts-ttf-DejaVuSansMono & Blod & BlodOblique & Oblique
+- [x] dejavu-fonts-ttf-DejaVuSansMono
+- [x] dejavu-fonts-ttf-DejaVuSansMono-Bold 
+- [x] dejavu-fonts-ttf-DejaVuSansMono-BlodOblique
+- [x] dejavu-fonts-ttf-DejaVuSansMono-Oblique
 
 ## Kernel modules
 ### Native Language Support
-- kmod-nls-cp932 (Japanese)
-- kmod-nls-cp936 (Simplified Chinese)
-- kmod-nls-cp950 (Traditional Chinese)
+- [x] kmod-nls-cp932 (Japanese)
+- [x] kmod-nls-cp936 (Simplified Chinese)
+- [x] kmod-nls-cp950 (Traditional Chinese)
 
 ### Other modules
-- kmod-sdhci
+- [x] kmod-sdhci
 
 ### USB Support
 --- Smartphone USB network sharing ---
 
-- kmod-usb-net-cdc-eem
-- kmod-usb-net-cdc-ncm
-- kmod-usb-net-cdc-subset
-- kmod-usb-net-huawei-cdc-ncm
-- kmod-usb-net-ipheth
-- kmod-usb-net-rndis
-- kmod-usb2
-- kmod-usb3
+- [x] kmod-usb-net-cdc-eem
+- [x] kmod-usb-net-cdc-ncm
+- [x] kmod-usb-net-cdc-subset
+- [x] kmod-usb-net-huawei-cdc-ncm
+- [x] kmod-usb-net-ipheth
+- [x] kmod-usb-net-rndis
+- [x] kmod-usb2
+- [x] kmod-usb3
 
 --- EOL Smartphone USB network sharing ---
 
 ## Libraries
 ### libcurl
-- Selected SSL library (OpenSSL)
-- SCP / SFTP protocol
+- [x] Selected SSL library (OpenSSL)
+- [x] SCP / SFTP protocol
 
 ## Luci
 ### Collections
-- luci
-- luci-lib-docker
-- luci-nginx
-- luci-ssl-nginx
-- luci-ssl-openssl
+- [x] luci
+- [x] luci-lib-docker
+- [x] luci-nginx
+- [x] luci-ssl-nginx
+- [x] luci-ssl-openssl
 
 ### Modules
-- Minify Lua sources
+- [ ] Minify JavaScript sources
+- [ ] Minify CSS files
 
 #### Translations
-- English
-- Chinese Simplified
-- Chinese Traditional
+- [x] English
+- [x] Chinese Simplified
+- [x] Chinese Traditional
 
 ### Applications
-- luci-app-acme
-- luci-app-adguardhome
-- luci-app-banip
-- luci-app-beardropper
-- luci-app-cpufreq (Armv8 only)
-- luci-app-ddns
-- luci-app-ddnsto
-- luci-app-diskman
-- luci-app-dockerman
-- luci-app-frpc
-- luci-app-frps
-- luci-app-iptvhelper
-- luci-app-mentohust
-- luci-app-minidlna
-- luci-app-mwan3
-- luci-app-nft-qos
-- luci-app-nlbwmon
-- luci-app-oaf
-- luci-app-openclash
-- luci-app-openvpn
-- luci-app-passwall (With all mods)
-- luci-app-qos
-- luci-app-serverchan
-- luci-app-smartdns
-- luci-app-statistics
-- luci-app-timecontrol
-- luci-app-ttyd
-- luci-app-udpxy
-- luci-app-upnp
-- luci-app-wifischedule
-- luci-app-wireguard
-- luci-app-wol
-- luci-app-wrtbwmon
-- luci-app-zerotier
+- [x] luci-app-acme
+- [x] luci-app-adguardhome
+- [x] luci-app-banip
+- [x] luci-app-beardropper
+- [x] luci-app-cpufreq (Armv8 only)
+- [x] luci-app-ddns
+- [x] luci-app-ddnsto
+- [x] luci-app-diskman
+- [x] luci-app-dockerman
+- [x] luci-app-frpc
+- [x] luci-app-frps
+- [x] luci-app-iptvhelper
+- [x] luci-app-mentohust
+- [x] luci-app-minidlna
+- [x] luci-app-mwan3
+- [x] luci-app-nft-qos
+- [x] luci-app-nlbwmon
+- [x] luci-app-oaf
+- [x] luci-app-openclash
+- [x] luci-app-openvpn
+- [x] luci-app-passwall (With all mods)
+- [x] luci-app-qos
+- [x] luci-app-serverchan
+- [x] luci-app-smartdns
+- [x] luci-app-statistics
+- [x] luci-app-timecontrol
+- [x] luci-app-ttyd
+- [x] luci-app-udpxy
+- [x] luci-app-upnp
+- [x] luci-app-wifischedule
+- [x] luci-app-wireguard
+- [x] luci-app-wol
+- [x] luci-app-wrtbwmon
+- [x] luci-app-zerotier
 
 ### Themes
-- luci-theme-argon
-- luci-app-argon-config
+- [x] luci-theme-argon
+- [x] luci-app-argon-config
 
 ## Network
-- acme-dnsapi
-- adguardhome
-- softflowd
+- [x] acme-dnsapi
+- [x] adguardhome
+- [x] softflowd
 
 ### IP Addresses and Names
-- ddns-scripts (With all mods)
-- ddns-scripts-services
-- ddns-scripts_aliyun
+- [x] ddns-scripts (With all mods)
+- [x] ddns-scripts-services
+- [x] ddns-scripts_aliyun
 
 ### VPN
-- openvpn-easy-rsa
-- openvpn-openssl
-- softethervpn-client
-- softethervpn-server
-- zerotier
+- [x] openvpn-easy-rsa
+- [x] openvpn-openssl
+- [x] softethervpn-client
+- [x] softethervpn-server
+- [x] zerotier
 
 ### Version Control Systems
-- git
-- git-http
+- [x] git
+- [x] git-http
 
 ### Web Servers/Proxies
-- nginx-all-module
+- [x] nginx-all-module
 
 ## Utilities
-- collectd
-  - collectd-mod-cpu
-  - collectd-mod-cpufreq
-  - collectd-mod-disk
-  - collectd-mod-dns
-  - collectd-mod-interface
-  - collectd-mod-iwinfo
-  - collectd-mod-load
-  - collectd-mod-memory
-  - collectd-mod-network
-  - collectd-mod-nginx
-  - collectd-mod-rrdtool
-  - collectd-mod-sensors
-  - collectd-mod-thermal
-  - collectd-mod-wireless
-- docker-compose
-- dockerd
-- shadow-utils
-  - [-] Full PLD version of passwd utility
-- tar
-- usbutils (Smartphone USB network sharing)
-- which
+- [x] collectd
+  - [x] collectd-mod-cpu
+  - [x] collectd-mod-cpufreq
+  - [x] collectd-mod-disk
+  - [x] collectd-mod-dns
+  - [x] collectd-mod-interface
+  - [x] collectd-mod-iwinfo
+  - [x] collectd-mod-load
+  - [x] collectd-mod-memory
+  - [x] collectd-mod-network
+  - [x] collectd-mod-nginx
+  - [x] collectd-mod-rrdtool
+  - [x] collectd-mod-sensors
+  - [x] collectd-mod-thermal
+  - [x] collectd-mod-wireless
+- [x] docker-compose
+- [x] dockerd
+- [x] shadow-utils
+  - [ ] Full PLD version of passwd utility
+- [x] tar
+- [x] usbutils (Smartphone USB network sharing)
+- [x] which
 
 ### Compression
-- gzip
-- unrar
-- xz-utils
+- [x] gzip
+- [x] unrar
+- [x] xz-utils
 
 ### Editors
-- nano-full
+- [x] nano-full
 
 ### Shells
-- zsh
+- [x] zsh
 
 ### Zoneinfo
-- zoneinfo-asia
-- zoneinfo-core
+- [x] zoneinfo-asia
+- [x] zoneinfo-core
 
 ### libimobiledevice
-- usbmuxd (Smartphone USB network sharing)
+- [x] usbmuxd (Smartphone USB network sharing)
