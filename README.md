@@ -4,6 +4,8 @@ A OpenWrt release for SummonHIM
 ## Download
 [Release](https://github.com/SummonHIM/SummonWRT/releases) / [Action](https://github.com/SummonHIM/SummonWRT/actions)
 
+[Download TypoGraphica font here](https://www.sharkshock.net/assets/typographica_d.zip). Argon theme need this font
+
 ## Include Package
 - [Packages.md](https://github.com/SummonHIM/SummonWRT/blob/master/Packages.md)
 
