@@ -476,7 +476,7 @@ zshSetup() {
 
 echo
 echo 1. English
-echo 2. Simplified Chinese (简体中文)
+echo 2. Simplified Chinese （简体中文）
 read -r -p "Please select a language: [1/2] " kbdInput
 case $kbdInput in
 1)
