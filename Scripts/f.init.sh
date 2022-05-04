@@ -1,5 +1,5 @@
 #!/bin/sh
-# Useage: sh -c "$(curl -fsSL https://raw.githubusercontent.com/SummonHIM/SummonWRT/master/Scripts/f.init.sh)"
+# Useage: sh -c "$(curl -fsSL https://raw.githubusercontent.com/SummonHIM/SummonWrt/master/Scripts/f.init.sh)"
 #Generate from https://tooltt.com/art-ascii/
 # _______                                       ________        __
 #|     __|.--.--.--------.--------.-----.-----.|  |  |  |.----.|  |_
