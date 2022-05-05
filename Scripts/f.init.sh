@@ -367,6 +367,13 @@ nginxConfig() {
 	echo "                  |__|____||___  ||__||__|__|__.__|"
 	echo "                           |_____| $langNginx"
 	echo "--------------------------------------------------------------------"
+	nginxStartListPlus=$(expr $(grep START /etc/init.d/nginx | sed -r 's/START=(.*)/\1/') + 1)
+	seVPNServerStartList=$(grep START /etc/init.d/softethervpnserver | sed -r 's/START=(.*)/\1/')
+	sed -i "s/START=$seVPNServerStartList/START=$nginxStartListPlus/g" /etc/init.d/softethervpnserver
+	/etc/init.d/softethervpnserver enable
+	seVPNClientStartList=$(grep START /etc/init.d/softethervpnclient | sed -r 's/START=(.*)/\1/')
+	sed -i "s/START=$seVPNClientStartList/START=$nginxStartListPlus/g" /etc/init.d/softethervpnclient
+	/etc/init.d/softethervpnclient enable
 	read -r -p "$langNginxRmRedir2SSL [Y/n] " kbdInput
 	case $kbdInput in
 	[yY][eE][sS] | [yY])
