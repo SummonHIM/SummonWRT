@@ -42,6 +42,8 @@ git clone --depth 1 https://github.com/rufengsuixing/luci-app-zerotier.git packa
 mv package/luci-app-zerotier/po/zh-cn package/luci-app-zerotier/po/zh_Hans
 git clone --depth 1 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
 git clone --depth 1 https://github.com/jerrykuku/luci-app-argon-config package/luci-theme-argon-config
+git clone --depth 1 https://github.com/mchome/openwrt-dogcom.git package/openwrt-dogcom
+git clone --depth 1 https://github.com/mchome/luci-app-dogcom.git package/luci-app-dogcom
 
 # immortalwrt
 git clone --depth 1 https://github.com/immortalwrt/immortalwrt.git -b openwrt-21.02 package/immortalpkg

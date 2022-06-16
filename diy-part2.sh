@@ -22,3 +22,6 @@ echo 'chsh -s /usr/bin/zsh' >>package/base-files/files/bin/config_generate
 sed -i "s/\/bin\/ash/\/usr\/bin\/zsh/g" package/base-files/files/etc/passwd
 echo '/usr/bin/zsh' >package/base-files/files/etc/shells
 echo '/bin/ash' >>package/base-files/files/etc/shells
+
+wget https://raw.githubusercontent.com/SummonHIM/SummonWrt/master/Scripts/f.init.sh -O package/base-files/files/bin/f.init.sh
+chmod +x package/base-files/files/bin/f.init.sh
