@@ -7,9 +7,12 @@
 - [x] Build VMware image files (VMDK)
 - (1024) Root filesystem partition size (in MB)
 
-## RK3328 Target Images
+## RK3328 NanoPi R2S Target Images
 - [x] tar.gz
 - (1024) Root filesystem partition size (in MB)
+
+## MT7621 Xiaomi Redmi Router AC2100 Target Images
+- [x] tar.gz
 
 ## Global build settings
 - [x] Select all kernel module packages by default
@@ -28,22 +31,22 @@
 
 ## Fonts
 ### DejaVu
-- [x] dejavu-fonts-ttf-DejaVuSansMono
-- [x] dejavu-fonts-ttf-DejaVuSansMono-Bold 
-- [x] dejavu-fonts-ttf-DejaVuSansMono-BlodOblique
-- [x] dejavu-fonts-ttf-DejaVuSansMono-Oblique
+- [x] dejavu-fonts-ttf-DejaVuSansMono (No AC2100)
+- [x] dejavu-fonts-ttf-DejaVuSansMono-Bold (No AC2100)
+- [x] dejavu-fonts-ttf-DejaVuSansMono-BlodOblique (No AC2100)
+- [x] dejavu-fonts-ttf-DejaVuSansMono-Oblique (No AC2100)
 
 ## Kernel modules
 ### Native Language Support
-- [x] kmod-nls-cp932 (Japanese)
+- [x] kmod-nls-cp932 (Japanese | No AC2100)
 - [x] kmod-nls-cp936 (Simplified Chinese)
 - [x] kmod-nls-cp950 (Traditional Chinese)
 
 ### Other modules
-- [x] kmod-sdhci
+- [x] kmod-sdhci (No AC2100)
 
 ### USB Support
---- Smartphone USB network sharing ---
+--- Smartphone USB network sharing (No AC2100)---
 
 - [x] kmod-usb-net-cdc-eem
 - [x] kmod-usb-net-cdc-ncm
@@ -54,7 +57,7 @@
 - [x] kmod-usb2
 - [x] kmod-usb3
 
---- EOL Smartphone USB network sharing ---
+--- EOL Smartphone USB network sharing (No AC2100)---
 
 ## Libraries
 ### libcurl
@@ -88,11 +91,11 @@
 - [x] luci-app-ddnsto
 - [x] luci-app-diskman
 - [x] luci-app-dockerman
+- [x] luci-app-dogcom
 - [x] luci-app-frpc
 - [x] luci-app-frps
 - [x] luci-app-iptvhelper
 - [x] luci-app-mentohust
-- [x] luci-app-minidlna
 - [x] luci-app-mwan3
 - [x] luci-app-nft-qos
 - [x] luci-app-nlbwmon
@@ -156,6 +159,7 @@
   - [x] collectd-mod-nginx
   - [x] collectd-mod-rrdtool
   - [x] collectd-mod-sensors
+  - [x] collectd-mod-smart
   - [x] collectd-mod-thermal
   - [x] collectd-mod-wireless
 - [x] docker-compose
@@ -163,7 +167,7 @@
 - [x] shadow-utils
   - [ ] Full PLD version of passwd utility
 - [x] tar
-- [x] usbutils (Smartphone USB network sharing)
+- [x] usbutils (Smartphone USB network sharing | No AC2100)
 - [x] which
 
 ### Compression
@@ -182,4 +186,4 @@
 - [x] zoneinfo-core
 
 ### libimobiledevice
-- [x] usbmuxd (Smartphone USB network sharing)
+- [x] usbmuxd (Smartphone USB network sharing | No AC2100)
