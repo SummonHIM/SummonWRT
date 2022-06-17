@@ -25,3 +25,7 @@ echo '/bin/ash' >>package/base-files/files/etc/shells
 
 wget https://raw.githubusercontent.com/SummonHIM/SummonWrt/master/Scripts/f.init.sh -O package/base-files/files/bin/f.init.sh
 chmod +x package/base-files/files/bin/f.init.sh
+
+sed -i 's/START=60/START=90/g' feeds/packages/net/softethervpn/files/vpnbridge.init
+sed -i 's/START=60/START=90/g' feeds/packages/net/softethervpn/files/vpnclient.init
+sed -i 's/START=60/START=90/g' feeds/packages/net/softethervpn/files/vpnserver.init

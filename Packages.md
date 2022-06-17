@@ -15,14 +15,11 @@
 - [x] tar.gz
 
 ## Global build settings
-- [x] Select all kernel module packages by default
+- [x] Select all target specific packages by default
 
 ## Base system
 - [x] block-mount
 - [ ] dnsmasq
-
-## Administration
-- [x] sudo
 
 ## Extra packages
 - [x] nginx
@@ -31,14 +28,14 @@
 
 ## Fonts
 ### DejaVu
-- [x] dejavu-fonts-ttf-DejaVuSansMono (No AC2100)
-- [x] dejavu-fonts-ttf-DejaVuSansMono-Bold (No AC2100)
-- [x] dejavu-fonts-ttf-DejaVuSansMono-BlodOblique (No AC2100)
-- [x] dejavu-fonts-ttf-DejaVuSansMono-Oblique (No AC2100)
+- [x] dejavu-fonts-ttf-DejaVuSansMono (x86_64 only)
+- [x] dejavu-fonts-ttf-DejaVuSansMono-Bold (x86_64 only)
+- [x] dejavu-fonts-ttf-DejaVuSansMono-BlodOblique (x86_64 only)
+- [x] dejavu-fonts-ttf-DejaVuSansMono-Oblique (x86_64 only)
 
 ## Kernel modules
 ### Native Language Support
-- [x] kmod-nls-cp932 (Japanese | No AC2100)
+- [x] kmod-nls-cp932 (Japanese | x86_64 only)
 - [x] kmod-nls-cp936 (Simplified Chinese)
 - [x] kmod-nls-cp950 (Traditional Chinese)
 
@@ -67,7 +64,7 @@
 ## Luci
 ### Collections
 - [x] luci
-- [x] luci-lib-docker
+- [x] luci-lib-docker (No AC2100)
 - [x] luci-nginx
 - [x] luci-ssl-nginx
 - [x] luci-ssl-openssl
@@ -90,7 +87,7 @@
 - [x] luci-app-ddns
 - [x] luci-app-ddnsto
 - [x] luci-app-diskman
-- [x] luci-app-dockerman
+- [x] luci-app-dockerman (No AC2100)
 - [x] luci-app-dogcom
 - [x] luci-app-frpc
 - [x] luci-app-frps
@@ -150,22 +147,18 @@
   - [x] collectd-mod-cpu
   - [x] collectd-mod-cpufreq
   - [x] collectd-mod-disk
-  - [x] collectd-mod-dns
   - [x] collectd-mod-interface
   - [x] collectd-mod-iwinfo
   - [x] collectd-mod-load
   - [x] collectd-mod-memory
   - [x] collectd-mod-network
-  - [x] collectd-mod-nginx
   - [x] collectd-mod-rrdtool
   - [x] collectd-mod-sensors
   - [x] collectd-mod-smart
   - [x] collectd-mod-thermal
   - [x] collectd-mod-wireless
-- [x] docker-compose
-- [x] dockerd
-- [x] shadow-utils
-  - [ ] Full PLD version of passwd utility
+- [x] docker-compose (No AC2100)
+- [x] dockerd (No AC2100)
 - [x] tar
 - [x] usbutils (Smartphone USB network sharing | No AC2100)
 - [x] which
