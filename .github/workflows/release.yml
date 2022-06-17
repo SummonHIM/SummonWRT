@@ -31,7 +31,7 @@ env:
 jobs:
   build-x86_64:
     name: Build SummonWrt x86_64
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     env: 
       CONFIG_FILE: x86_64.config
 
@@ -45,7 +45,7 @@ jobs:
       run: |
         sudo rm -rf /etc/apt/sources.list.d/* /usr/share/dotnet /usr/local/lib/android /opt/ghc
         sudo -E apt-get -qq update
-        sudo -E apt-get -qq install build-essential ccache ecj fastjar file g++ gawk gettext git java-propose-classpath libelf-dev libncurses5-dev libncursesw5-dev libssl-dev mkisofs python python2.7-dev python3 unzip wget python-distutils-extra python3-setuptools python3-dev rsync subversion swig time xsltproc zlib1g-dev
+        sudo -E apt-get -qq install $(curl -fsSL https://raw.githubusercontent.com/SummonHIM/SummonWrt/master/Scripts/build-ubuntu-2204)
         sudo -E apt-get -qq autoremove --purge
         sudo -E apt-get -qq clean
         sudo timedatectl set-timezone "$TZ"
@@ -199,7 +199,7 @@ jobs:
 
   build-r2s:
     name: Build SummonWrt Rockchip RK3328 NanoPi R2S
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     env: 
       CONFIG_FILE: r2s.config
 
@@ -213,7 +213,7 @@ jobs:
       run: |
         sudo rm -rf /etc/apt/sources.list.d/* /usr/share/dotnet /usr/local/lib/android /opt/ghc
         sudo -E apt-get -qq update
-        sudo -E apt-get -qq install build-essential ccache ecj fastjar file g++ gawk gettext git java-propose-classpath libelf-dev libncurses5-dev libncursesw5-dev libssl-dev mkisofs python python2.7-dev python3 unzip wget python-distutils-extra python3-setuptools python3-dev rsync subversion swig time xsltproc zlib1g-dev
+        sudo -E apt-get -qq install $(curl -fsSL https://raw.githubusercontent.com/SummonHIM/SummonWrt/master/Scripts/build-ubuntu-2204)
         sudo -E apt-get -qq autoremove --purge
         sudo -E apt-get -qq clean
         sudo timedatectl set-timezone "$TZ"
@@ -367,7 +367,7 @@ jobs:
 
   build-rm2100:
     name: Build SummonWrt MT7621 Xiaomi Redmi Router AC2100
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     env: 
       CONFIG_FILE: rm2100.config
 
@@ -381,7 +381,7 @@ jobs:
       run: |
         sudo rm -rf /etc/apt/sources.list.d/* /usr/share/dotnet /usr/local/lib/android /opt/ghc
         sudo -E apt-get -qq update
-        sudo -E apt-get -qq install build-essential ccache ecj fastjar file g++ gawk gettext git java-propose-classpath libelf-dev libncurses5-dev libncursesw5-dev libssl-dev mkisofs python python2.7-dev python3 unzip wget python-distutils-extra python3-setuptools python3-dev rsync subversion swig time xsltproc zlib1g-dev
+        sudo -E apt-get -qq install $(curl -fsSL https://raw.githubusercontent.com/SummonHIM/SummonWrt/master/Scripts/build-ubuntu-2204)
         sudo -E apt-get -qq autoremove --purge
         sudo -E apt-get -qq clean
         sudo timedatectl set-timezone "$TZ"
