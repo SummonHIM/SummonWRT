@@ -14,25 +14,24 @@ on:
   repository_dispatch:
   workflow_dispatch:
 
-env:
-  REPO_URL: https://git.openwrt.org/openwrt/openwrt.git
-  REPO_BRANCH: v21.02.3
-  FEEDS_CONF: feeds.conf.default
-  DIY_P1_SH: diy-part1.sh
-  DIY_P2_SH: diy-part2.sh
-  UPLOAD_BIN_DIR: false
-  UPLOAD_FIRMWARE: true
-  UPLOAD_FIRMWARE_WORKFLOW: false
-  UPLOAD_FIRMWARE_COWTRANSFER: false
-  UPLOAD_FIRMWARE_WETRANSFER: false
-  UPLOAD_FIRMWARE_RELEASE: true
-  TZ: Asia/Shanghai
-
 jobs:
   build-x86_64:
     name: Build SummonWrt x86_64
     runs-on: ubuntu-22.04
     env: 
+      REPO_URL: https://git.openwrt.org/openwrt/openwrt.git
+      REPO_BRANCH: v21.02.3
+      FEEDS_CONF: feeds.conf.default
+      DIY_P1_SH: diy-part1.sh
+      DIY_P2_SH: diy-part2.sh
+      UPLOAD_BIN_DIR: false
+      UPLOAD_PACKAGES_GHPAGES: true
+      UPLOAD_FIRMWARE: true
+      UPLOAD_FIRMWARE_WORKFLOW: false
+      UPLOAD_FIRMWARE_COWTRANSFER: false
+      UPLOAD_FIRMWARE_WETRANSFER: false
+      UPLOAD_FIRMWARE_RELEASE: true
+      TZ: Asia/Shanghai
       CONFIG_FILE: x86_64.config
 
     steps:
@@ -103,8 +102,8 @@ jobs:
         echo -e "$(($(nproc)+1)) thread compile"
         make -j $(($(nproc)+1)) world
         echo "::set-output name=status::success"
-        echo "DEVICE_NAME=-$(grep '^CONFIG_TARGET_BOARD=".*"' .config | sed -r 's/.*"(.*)".*/\1/')-$(grep '^CONFIG_TARGET_SUBTARGET=".*"' .config | sed -r 's/.*"(.*)".*/\1/')-$(grep '^CONFIG_TARGET.*DEVICE.*=y' .config | sed -r 's/.*DEVICE_(.*)=y/\1/')" >> $GITHUB_ENV
-        echo "FILE_DATE=-$GITHUB_RUN_NUMBER-$(date +"%y%m%d")" >> $GITHUB_ENV
+        echo "DEVICE_NAME=$(grep '^CONFIG_TARGET_BOARD=".*"' .config | sed -r 's/.*"(.*)".*/\1/')-$(grep '^CONFIG_TARGET_SUBTARGET=".*"' .config | sed -r 's/.*"(.*)".*/\1/')-$(grep '^CONFIG_TARGET.*DEVICE.*=y' .config | sed -r 's/.*DEVICE_(.*)=y/\1/')" >> $GITHUB_ENV
+        echo "FILE_DATE=$GITHUB_RUN_NUMBER-$(date +"%y%m%d")" >> $GITHUB_ENV
 
     - name: Check space usage
       if: (!cancelled())
@@ -114,20 +113,32 @@ jobs:
       uses: actions/upload-artifact@main
       if: steps.compile.outputs.status == 'success' && env.UPLOAD_BIN_DIR == 'true'
       with:
-        name: openwrt-bin${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
+        name: openwrt-bin-${{ env.DEVICE_NAME }}-${{ env.FILE_DATE }}
         path: openwrt/bin
 
+    - name: Upload packages to gh-pages
+      if: steps.compile.outputs.status == 'success' && env.UPLOAD_PACKAGES_GHPAGES == 'true'
+      run: |
+        git clone https://github.com/${{ GITHUB_REPOSITORY }}.git -b gh-pages gh-pages
+        if [ -d "gh-pages/${{ env.DEVICE_NAME }}" ]; then rm -rf gh-pages/${{ env.DEVICE_NAME }}/*; fi
+        cp -rf openwrt/bin/targets/*/*/packages/* gh-pages/${{ env.DEVICE_NAME }}
+        sed -i 's/Build ID(${{ env.DEVICE_NAME }}): [0-9]*/Build ID(${{ env.DEVICE_NAME }}): ${{ GITHUB_RUN_NUMBER }}/g' gh-pages/index.md
+        cd gh-pages
+        git add .
+        git commit -m "Packages Build ID ${{ GITHUB_RUN_NUMBER }} of ${{ env.DEVICE_NAME }}"
+        git push origin gh-pages &> /dev/null
+        
     - name: Organize files
       id: organize
       if: steps.compile.outputs.status == 'success' && env.UPLOAD_FIRMWARE == 'true' && !cancelled()
       run: |
         cd openwrt/bin/targets/*/*
-        tar -zvcf packages${{ env.DEVICE_NAME }}.tar.gz packages/*
+        tar -zvcf packages-${{ env.DEVICE_NAME }}.tar.gz packages/*
         rm -rf packages
-        mv config.buildinfo config${{ env.DEVICE_NAME }}.buildinfo
-        mv feeds.buildinfo feeds${{ env.DEVICE_NAME }}.buildinfo
-        mv sha256sums sha256sums${{ env.DEVICE_NAME }}
-        mv version.buildinfo version${{ env.DEVICE_NAME }}.buildinfo
+        mv config.buildinfo config-${{ env.DEVICE_NAME }}.buildinfo
+        mv feeds.buildinfo feeds-${{ env.DEVICE_NAME }}.buildinfo
+        mv sha256sums sha256sums-${{ env.DEVICE_NAME }}
+        mv version.buildinfo version-${{ env.DEVICE_NAME }}.buildinfo
         echo "FIRMWARE=$PWD" >> $GITHUB_ENV
         echo "::set-output name=status::success"
 
@@ -135,7 +146,7 @@ jobs:
       uses: actions/upload-artifact@main
       if: steps.organize.outputs.status == 'success' && env.UPLOAD_FIRMWARE_WORKFLOW == 'true' && !cancelled()
       with:
-        name: openwrt-firmware${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
+        name: openwrt-firmware-${{ env.DEVICE_NAME }}-${{ env.FILE_DATE }}
         path: ${{ env.FIRMWARE }}
 
     - name: Upload firmware to cowtransfer
@@ -201,6 +212,19 @@ jobs:
     name: Build SummonWrt Rockchip RK3328 NanoPi R2S
     runs-on: ubuntu-22.04
     env: 
+      REPO_URL: https://git.openwrt.org/openwrt/openwrt.git
+      REPO_BRANCH: v21.02.3
+      FEEDS_CONF: feeds.conf.default
+      DIY_P1_SH: diy-part1.sh
+      DIY_P2_SH: diy-part2.sh
+      UPLOAD_BIN_DIR: false
+      UPLOAD_PACKAGES_GHPAGES: true
+      UPLOAD_FIRMWARE: true
+      UPLOAD_FIRMWARE_WORKFLOW: false
+      UPLOAD_FIRMWARE_COWTRANSFER: false
+      UPLOAD_FIRMWARE_WETRANSFER: false
+      UPLOAD_FIRMWARE_RELEASE: true
+      TZ: Asia/Shanghai
       CONFIG_FILE: r2s.config
 
     steps:
@@ -271,8 +295,8 @@ jobs:
         echo -e "$(($(nproc)+1)) thread compile"
         make -j $(($(nproc)+1)) world
         echo "::set-output name=status::success"
-        echo "DEVICE_NAME=-$(grep '^CONFIG_TARGET_BOARD=".*"' .config | sed -r 's/.*"(.*)".*/\1/')-$(grep '^CONFIG_TARGET_SUBTARGET=".*"' .config | sed -r 's/.*"(.*)".*/\1/')-$(grep '^CONFIG_TARGET.*DEVICE.*=y' .config | sed -r 's/.*DEVICE_(.*)=y/\1/')" >> $GITHUB_ENV
-        echo "FILE_DATE=-$GITHUB_RUN_NUMBER-$(date +"%y%m%d")" >> $GITHUB_ENV
+        echo "DEVICE_NAME=$(grep '^CONFIG_TARGET_BOARD=".*"' .config | sed -r 's/.*"(.*)".*/\1/')-$(grep '^CONFIG_TARGET_SUBTARGET=".*"' .config | sed -r 's/.*"(.*)".*/\1/')-$(grep '^CONFIG_TARGET.*DEVICE.*=y' .config | sed -r 's/.*DEVICE_(.*)=y/\1/')" >> $GITHUB_ENV
+        echo "FILE_DATE=$GITHUB_RUN_NUMBER-$(date +"%y%m%d")" >> $GITHUB_ENV
 
     - name: Check space usage
       if: (!cancelled())
@@ -282,20 +306,32 @@ jobs:
       uses: actions/upload-artifact@main
       if: steps.compile.outputs.status == 'success' && env.UPLOAD_BIN_DIR == 'true'
       with:
-        name: openwrt-bin${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
+        name: openwrt-bin-${{ env.DEVICE_NAME }}-${{ env.FILE_DATE }}
         path: openwrt/bin
+
+    - name: Upload packages to gh-pages
+      if: steps.compile.outputs.status == 'success' && env.UPLOAD_PACKAGES_GHPAGES == 'true'
+      run: |
+        git clone https://github.com/${{ GITHUB_REPOSITORY }}.git -b gh-pages gh-pages
+        if [ -d "gh-pages/${{ env.DEVICE_NAME }}" ]; then rm -rf gh-pages/${{ env.DEVICE_NAME }}/*; fi
+        cp -rf openwrt/bin/targets/*/*/packages/* gh-pages/${{ env.DEVICE_NAME }}
+        sed -i 's/Build ID(${{ env.DEVICE_NAME }}): [0-9]*/Build ID(${{ env.DEVICE_NAME }}): ${{ GITHUB_RUN_NUMBER }}/g' gh-pages/index.md
+        cd gh-pages
+        git add .
+        git commit -m "Packages Build ID ${{ GITHUB_RUN_NUMBER }} of ${{ env.DEVICE_NAME }}"
+        git push origin gh-pages &> /dev/null
 
     - name: Organize files
       id: organize
       if: steps.compile.outputs.status == 'success' && env.UPLOAD_FIRMWARE == 'true' && !cancelled()
       run: |
         cd openwrt/bin/targets/*/*
-        tar -zvcf packages${{ env.DEVICE_NAME }}.tar.gz packages/*
+        tar -zvcf packages-${{ env.DEVICE_NAME }}.tar.gz packages/*
         rm -rf packages
-        mv config.buildinfo config${{ env.DEVICE_NAME }}.buildinfo
-        mv feeds.buildinfo feeds${{ env.DEVICE_NAME }}.buildinfo
-        mv sha256sums sha256sums${{ env.DEVICE_NAME }}
-        mv version.buildinfo version${{ env.DEVICE_NAME }}.buildinfo
+        mv config.buildinfo config-${{ env.DEVICE_NAME }}.buildinfo
+        mv feeds.buildinfo feeds-${{ env.DEVICE_NAME }}.buildinfo
+        mv sha256sums sha256sums-${{ env.DEVICE_NAME }}
+        mv version.buildinfo version-${{ env.DEVICE_NAME }}.buildinfo
         echo "FIRMWARE=$PWD" >> $GITHUB_ENV
         echo "::set-output name=status::success"
 
@@ -303,7 +339,7 @@ jobs:
       uses: actions/upload-artifact@main
       if: steps.organize.outputs.status == 'success' && env.UPLOAD_FIRMWARE_WORKFLOW == 'true' && !cancelled()
       with:
-        name: openwrt-firmware${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
+        name: openwrt-firmware-${{ env.DEVICE_NAME }}-${{ env.FILE_DATE }}
         path: ${{ env.FIRMWARE }}
 
     - name: Upload firmware to cowtransfer
@@ -369,6 +405,19 @@ jobs:
     name: Build SummonWrt MT7621 Xiaomi Redmi Router AC2100
     runs-on: ubuntu-22.04
     env: 
+      REPO_URL: https://git.openwrt.org/openwrt/openwrt.git
+      REPO_BRANCH: v21.02.3
+      FEEDS_CONF: feeds.conf.default
+      DIY_P1_SH: diy-part1.sh
+      DIY_P2_SH: diy-part2.sh
+      UPLOAD_BIN_DIR: false
+      UPLOAD_PACKAGES_GHPAGES: true
+      UPLOAD_FIRMWARE: true
+      UPLOAD_FIRMWARE_WORKFLOW: false
+      UPLOAD_FIRMWARE_COWTRANSFER: false
+      UPLOAD_FIRMWARE_WETRANSFER: false
+      UPLOAD_FIRMWARE_RELEASE: true
+      TZ: Asia/Shanghai
       CONFIG_FILE: rm2100.config
 
     steps:
@@ -439,8 +488,8 @@ jobs:
         echo -e "$(($(nproc)+1)) thread compile"
         make -j $(($(nproc)+1)) world
         echo "::set-output name=status::success"
-        echo "DEVICE_NAME=-$(grep '^CONFIG_TARGET_BOARD=".*"' .config | sed -r 's/.*"(.*)".*/\1/')-$(grep '^CONFIG_TARGET_SUBTARGET=".*"' .config | sed -r 's/.*"(.*)".*/\1/')-$(grep '^CONFIG_TARGET.*DEVICE.*=y' .config | sed -r 's/.*DEVICE_(.*)=y/\1/')" >> $GITHUB_ENV
-        echo "FILE_DATE=-$GITHUB_RUN_NUMBER-$(date +"%y%m%d")" >> $GITHUB_ENV
+        echo "DEVICE_NAME=$(grep '^CONFIG_TARGET_BOARD=".*"' .config | sed -r 's/.*"(.*)".*/\1/')-$(grep '^CONFIG_TARGET_SUBTARGET=".*"' .config | sed -r 's/.*"(.*)".*/\1/')-$(grep '^CONFIG_TARGET.*DEVICE.*=y' .config | sed -r 's/.*DEVICE_(.*)=y/\1/')" >> $GITHUB_ENV
+        echo "FILE_DATE=$GITHUB_RUN_NUMBER-$(date +"%y%m%d")" >> $GITHUB_ENV
 
     - name: Check space usage
       if: (!cancelled())
@@ -450,20 +499,32 @@ jobs:
       uses: actions/upload-artifact@main
       if: steps.compile.outputs.status == 'success' && env.UPLOAD_BIN_DIR == 'true'
       with:
-        name: openwrt-bin${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
+        name: openwrt-bin-${{ env.DEVICE_NAME }}-${{ env.FILE_DATE }}
         path: openwrt/bin
+
+    - name: Upload packages to gh-pages
+      if: steps.compile.outputs.status == 'success' && env.UPLOAD_PACKAGES_GHPAGES == 'true'
+      run: |
+        git clone https://github.com/${{ GITHUB_REPOSITORY }}.git -b gh-pages gh-pages
+        if [ -d "gh-pages/${{ env.DEVICE_NAME }}" ]; then rm -rf gh-pages/${{ env.DEVICE_NAME }}/*; fi
+        cp -rf openwrt/bin/targets/*/*/packages/* gh-pages/${{ env.DEVICE_NAME }}
+        sed -i 's/Build ID(${{ env.DEVICE_NAME }}): [0-9]*/Build ID(${{ env.DEVICE_NAME }}): ${{ GITHUB_RUN_NUMBER }}/g' gh-pages/index.md
+        cd gh-pages
+        git add .
+        git commit -m "Packages Build ID ${{ GITHUB_RUN_NUMBER }} of ${{ env.DEVICE_NAME }}"
+        git push origin gh-pages &> /dev/null
 
     - name: Organize files
       id: organize
       if: steps.compile.outputs.status == 'success' && env.UPLOAD_FIRMWARE == 'true' && !cancelled()
       run: |
         cd openwrt/bin/targets/*/*
-        tar -zvcf packages${{ env.DEVICE_NAME }}.tar.gz packages/*
+        tar -zvcf packages-${{ env.DEVICE_NAME }}.tar.gz packages/*
         rm -rf packages
-        mv config.buildinfo config${{ env.DEVICE_NAME }}.buildinfo
-        mv feeds.buildinfo feeds${{ env.DEVICE_NAME }}.buildinfo
-        mv sha256sums sha256sums${{ env.DEVICE_NAME }}
-        mv version.buildinfo version${{ env.DEVICE_NAME }}.buildinfo
+        mv config.buildinfo config-${{ env.DEVICE_NAME }}.buildinfo
+        mv feeds.buildinfo feeds-${{ env.DEVICE_NAME }}.buildinfo
+        mv sha256sums sha256sums-${{ env.DEVICE_NAME }}
+        mv version.buildinfo version-${{ env.DEVICE_NAME }}.buildinfo
         echo "FIRMWARE=$PWD" >> $GITHUB_ENV
         echo "::set-output name=status::success"
 
@@ -471,7 +532,7 @@ jobs:
       uses: actions/upload-artifact@main
       if: steps.organize.outputs.status == 'success' && env.UPLOAD_FIRMWARE_WORKFLOW == 'true' && !cancelled()
       with:
-        name: openwrt-firmware${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
+        name: openwrt-firmware-${{ env.DEVICE_NAME }}-${{ env.FILE_DATE }}
         path: ${{ env.FIRMWARE }}
 
     - name: Upload firmware to cowtransfer
