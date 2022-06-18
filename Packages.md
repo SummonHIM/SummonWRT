@@ -5,6 +5,7 @@
 - [x] Build LiveCD image (ISO)
 - [x] Build VirtualBox image files (VDI)
 - [x] Build VMware image files (VMDK)
+- [x] Build Hyper-V image files (VHDX)
 - (1024) Root filesystem partition size (in MB)
 
 ## RK3328 NanoPi R2S Target Images
@@ -73,7 +74,6 @@
 ### Applications
 - [x] luci-app-acme
 - [x] luci-app-adguardhome
-- [x] luci-app-banip
 - [x] luci-app-beardropper
 - [x] luci-app-cpufreq (Armv8 only)
 - [x] luci-app-ddns

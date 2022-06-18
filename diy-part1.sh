@@ -51,7 +51,6 @@ git clone --depth 1 https://github.com/immortalwrt/packages.git -b openwrt-21.02
 git clone --depth 1 https://github.com/immortalwrt/luci.git -b openwrt-21.02 package/immortalpkg-luci
 
 cp -r package/immortalpkg-packages/net/mentohust package/mentohust
-cp -r package/immortalpkg-packages/net/ddns-scripts_dnspod package/ddns-scripts_dnspod
 cp -r package/immortalpkg-packages/net/ddns-scripts_aliyun package/ddns-scripts_aliyun
 cp -r package/immortalpkg-luci/applications/luci-app-mentohust package/luci-app-mentohust
 sed -i "s/include ..\/..\/luci.mk/include ..\/..\/feeds\/luci\/luci.mk/g" package/luci-app-mentohust/Makefile
