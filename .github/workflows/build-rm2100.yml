@@ -25,6 +25,7 @@ on:
       - 'diy-part1.sh'
       - 'diy-part2.sh'
       - '.github/workflows/build-rm2100.yml'
+      - 'Scripts\build-ubuntu-2204'
 
 env:
   REPO_URL: https://git.openwrt.org/openwrt/openwrt.git
