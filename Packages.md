@@ -26,16 +26,8 @@
 - [x] nginx-mod-luci-ssl
 - [x] nginx-util
 
-## Fonts
-### DejaVu
-- [x] dejavu-fonts-ttf-DejaVuSansMono (x86_64 only)
-- [x] dejavu-fonts-ttf-DejaVuSansMono-Bold (x86_64 only)
-- [x] dejavu-fonts-ttf-DejaVuSansMono-BlodOblique (x86_64 only)
-- [x] dejavu-fonts-ttf-DejaVuSansMono-Oblique (x86_64 only)
-
 ## Kernel modules
 ### Native Language Support
-- [x] kmod-nls-cp932 (Japanese | x86_64 only)
 - [x] kmod-nls-cp936 (Simplified Chinese)
 - [x] kmod-nls-cp950 (Traditional Chinese)
 
@@ -129,7 +121,6 @@
 - [x] ddns-scripts_aliyun
 
 ### VPN
-- [x] openvpn-easy-rsa
 - [x] openvpn-openssl
 - [x] softethervpn-client
 - [x] softethervpn-server
