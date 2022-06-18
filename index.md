@@ -28,3 +28,18 @@ src/gz summonwrt https://summonwrt.summonhim.top/rockchip-armv8-friendlyarm_nano
 ```
 
 You can also download at [release](https://github.com/SummonHIM/SummonWrt/releases) call `packages-rockchip-armv8-friendlyarm_nanopi-r2s.tar.gz`
+
+## MediaTek MT7621 Xiaomi Redmi Router AC2100
+Build ID(ramips-mt7621-xiaomi_redmi-router-ac2100): 0, [Preview Packages](https://github.com/SummonHIM/SummonWrt/tree/gh-pages/ramips-mt7621-xiaomi_redmi-router-ac2100)
+
+### GitHub Pages version
+```
+src/gz summonwrt https://summonhim.github.io/SummonWrt/ramips-mt7621-xiaomi_redmi-router-ac2100
+```
+
+### Cloudflare Pages version
+```
+src/gz summonwrt https://summonwrt.summonhim.top/ramips-mt7621-xiaomi_redmi-router-ac2100
+```
+
+You can also download at [release](https://github.com/SummonHIM/SummonWrt/releases) call `packages-ramips-mt7621-xiaomi_redmi-router-ac2100.tar.gz`
