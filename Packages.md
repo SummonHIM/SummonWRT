@@ -131,7 +131,8 @@
 - [x] git-http
 
 ### Web Servers/Proxies
-- [x] nginx-all-module
+- [x] nginx-ssl
+  - [x] Enable RTMP module
 
 ## Utilities
 - [x] collectd
