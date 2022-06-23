@@ -7,6 +7,9 @@ A OpenWrt release for SummonHIM
 ## Include Package
 - [Packages.md](https://github.com/SummonHIM/SummonWRT/blob/master/Packages.md)
 
+## Custom Package Sources
+- [https://summonhim.github.io/SummonWrt](https://summonhim.github.io/SummonWrt)
+
 ## Information
 - Lan IP: 192.168.2.1
 - No password provide
